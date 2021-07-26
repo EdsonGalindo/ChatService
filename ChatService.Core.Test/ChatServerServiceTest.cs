@@ -1,6 +1,7 @@
 using ChatService.Core.Services;
 using NUnit.Framework;
 using System.Net;
+using System.Threading;
 
 namespace ChatService.Core.Test
 {
@@ -13,12 +14,13 @@ namespace ChatService.Core.Test
         {
             this.ChatServerService = new ChatServerService();
             this.ChatServerService.IP = IPAddress.Parse("127.0.0.1");
-            this.ChatServerService.Port = 8182;
         }
 
         [Test]
         public void ShouldIniateChatServerOnCallStartMethod()
         {
+            // Changes the Port because the test runs too fast and the port may still be allocated yet
+            this.ChatServerService.Port = 8183; 
             this.ChatServerService.Start();
 
             var chatServerStatus = this.ChatServerService.IsChatServerActive;
@@ -29,6 +31,8 @@ namespace ChatService.Core.Test
         [Test]
         public void ShouldStopChatServerOnCallStopMethod()
         {
+            // Changes the Port because the test runs too fast and the port may still be allocated yet
+            this.ChatServerService.Port = 8184;
             this.ChatServerService.Start();
             var chatServerStatus = this.ChatServerService.IsChatServerActive;
             this.ChatServerService.Stop();

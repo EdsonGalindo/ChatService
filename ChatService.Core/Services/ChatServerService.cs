@@ -269,6 +269,7 @@ namespace ChatService.Core.Services
 
         public void Stop()
         {
+            RemoveChatServerWorker();
             this.StopWaiting(this.Socket, 5000);
             this.Socket.Server.Dispose();
 

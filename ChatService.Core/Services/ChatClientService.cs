@@ -60,7 +60,9 @@ namespace ChatService.Core.Services
             this.SocketConnection.Dispose();
             IsChatClientConnected = false;
 
+            #if DEBUG == false
             Console.Clear();
+            #endif
             Console.WriteLine("Disconnected from the Chat Server successfully! See you soon!");
         }
 
