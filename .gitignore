@@ -5,3 +5,6 @@
 /.vs/ChatService/v16
 /ChatServer/obj
 /ChatService.Client/obj
+*.tmp
+*.cache
+/ChatService.Core.Test/obj
