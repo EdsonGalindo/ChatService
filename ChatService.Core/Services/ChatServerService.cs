@@ -51,7 +51,6 @@ namespace ChatService.Core.Services
         public void ClientMessagesWorker(ChatClient chatClient)
         {
             var chatMessage = new ChatMessage();
-            var newMessageBytes = new byte[maxArrayBytes];
             var isClientConnectionActive = true;
 
             while (isClientConnectionActive)
@@ -65,6 +64,7 @@ namespace ChatService.Core.Services
 
                 var chatClientStream = chatClient.SocketConnection.GetStream();
                 var receivedBufferSize = chatClient.SocketConnection.ReceiveBufferSize;
+                var newMessageBytes = new byte[maxArrayBytes];
 
                 chatClientStream.Read(newMessageBytes, 0, maxArrayBytes);
                 

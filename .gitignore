@@ -8,3 +8,8 @@
 *.tmp
 *.cache
 /ChatService.Core.Test/obj
+/ChatServer/bin/Debug
+/ChatService.Client/bin/Debug
+/ChatService.Core/bin/Debug
+/ChatService.Core/obj/Debug/ChatService.Core.dll
+*.pdb
